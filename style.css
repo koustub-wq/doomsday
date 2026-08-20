@@ -1,0 +1,1233 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+
+/* =========================
+   ROOT
+========================= */
+
+:root {
+
+    --red: #e50914;
+    --dark-red: #8b0000;
+
+    --black: #030303;
+    --dark: #080808;
+
+    --white: #f5f5f5;
+    --grey: #999;
+
+    --border: rgba(255,255,255,0.12);
+
+}
+
+
+/* =========================
+   RESET
+========================= */
+
+* {
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+body {
+
+    background: var(--black);
+
+    color: var(--white);
+
+    font-family: 'Inter', sans-serif;
+
+    overflow-x: hidden;
+
+}
+
+
+/* =========================
+   LOADER
+========================= */
+
+#loader {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: #000;
+
+    z-index: 99999;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    transition: 1s ease;
+
+}
+
+.loader-logo {
+
+    font-family: 'Barlow Condensed';
+
+    font-size: clamp(60px,12vw,160px);
+
+    font-weight: 900;
+
+    letter-spacing: 8px;
+
+}
+
+.loader-line {
+
+    width: 180px;
+
+    height: 2px;
+
+    background: var(--red);
+
+    margin: 25px 0;
+
+    animation: loaderLine 1.8s infinite;
+
+}
+
+#loader p {
+
+    font-size: 11px;
+
+    letter-spacing: 5px;
+
+    color: #777;
+
+}
+
+@keyframes loaderLine {
+
+    0% {
+
+        transform: scaleX(0);
+
+    }
+
+    50% {
+
+        transform: scaleX(1);
+
+    }
+
+    100% {
+
+        transform: scaleX(0);
+
+    }
+
+}
+
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.background-grid {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -5;
+
+    opacity: .15;
+
+    background-image:
+
+        linear-gradient(
+            rgba(255,255,255,.03) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.03) 1px,
+            transparent 1px
+        );
+
+    background-size: 70px 70px;
+
+}
+
+.background-grid::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            rgba(229,9,20,.15),
+            transparent 35%
+        );
+
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 80px;
+
+    padding: 0 6vw;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    z-index: 1000;
+
+    backdrop-filter: blur(20px);
+
+    background: rgba(0,0,0,.45);
+
+    border-bottom: 1px solid rgba(255,255,255,.05);
+
+}
+
+.nav-logo {
+
+    font-family: 'Barlow Condensed';
+
+    font-weight: 900;
+
+    letter-spacing: 3px;
+
+    font-size: 25px;
+
+}
+
+.nav-logo span {
+
+    color: var(--red);
+
+}
+
+.navbar nav {
+
+    display: flex;
+
+    gap: 35px;
+
+}
+
+.navbar nav a {
+
+    text-decoration: none;
+
+    color: #aaa;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    transition: .3s;
+
+}
+
+.navbar nav a:hover {
+
+    color: white;
+
+}
+
+.menu-button {
+
+    display: none;
+
+    background: none;
+
+    border: none;
+
+    color: white;
+
+    font-size: 24px;
+
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(140,0,0,.25),
+            transparent 45%
+        );
+
+}
+
+.hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(
+            to bottom,
+            transparent 60%,
+            #030303 100%
+        );
+
+}
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 1000px;
+
+    padding: 20px;
+
+}
+
+.eyebrow {
+
+    font-size: 11px;
+
+    letter-spacing: 6px;
+
+    color: #aaa;
+
+    margin-bottom: 25px;
+
+}
+
+.hero h1 {
+
+    font-family: 'Barlow Condensed';
+
+    font-size: clamp(100px,20vw,300px);
+
+    line-height: .75;
+
+    font-weight: 900;
+
+    letter-spacing: -5px;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #999999 45%,
+            #333333
+        );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    text-shadow:
+
+        0 20px 80px rgba(255,0,0,.15);
+
+}
+
+.hero-tagline {
+
+    margin-top: 35px;
+
+    font-size: clamp(18px,3vw,32px);
+
+    font-weight: 700;
+
+    letter-spacing: 7px;
+
+    color: var(--red);
+
+}
+
+.hero-description {
+
+    max-width: 600px;
+
+    margin: 25px auto;
+
+    color: #aaa;
+
+    line-height: 1.8;
+
+}
+
+.hero-buttons {
+
+    margin-top: 40px;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+}
+
+.primary-button,
+.secondary-button {
+
+    padding: 17px 30px;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    font-weight: 700;
+
+    transition: .3s;
+
+}
+
+.primary-button {
+
+    background: var(--red);
+
+    color: white;
+
+}
+
+.primary-button:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 15px 40px rgba(229,9,20,.3);
+
+}
+
+.secondary-button {
+
+    border: 1px solid #444;
+
+    color: white;
+
+}
+
+.secondary-button:hover {
+
+    border-color: var(--red);
+
+}
+
+.scroll-indicator {
+
+    position: absolute;
+
+    bottom: 35px;
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    color: #666;
+
+}
+
+.scroll-indicator span {
+
+    display: block;
+
+    width: 1px;
+
+    height: 40px;
+
+    background: var(--red);
+
+    margin: auto auto 12px;
+
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+
+    padding: 140px 8vw;
+
+    max-width: 1500px;
+
+    margin: auto;
+
+}
+
+.section-heading {
+
+    display: flex;
+
+    gap: 30px;
+
+    margin-bottom: 80px;
+
+}
+
+.section-heading span {
+
+    color: var(--red);
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    padding-top: 12px;
+
+}
+
+.section-heading h2 {
+
+    font-family: 'Barlow Condensed';
+
+    font-size: clamp(60px,8vw,130px);
+
+    line-height: .8;
+
+    text-transform: uppercase;
+
+    font-weight: 800;
+
+}
+
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+.countdown-section {
+
+    padding: 120px 20px;
+
+    text-align: center;
+
+    background:
+
+        linear-gradient(
+            rgba(255,255,255,.02),
+            rgba(255,255,255,0)
+        );
+
+}
+
+.section-label {
+
+    color: var(--red);
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+}
+
+.countdown-section h2 {
+
+    font-family: 'Barlow Condensed';
+
+    font-size: clamp(45px,7vw,90px);
+
+    margin: 20px 0 50px;
+
+}
+
+.countdown {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+}
+
+.time-box {
+
+    width: 130px;
+
+    padding: 25px 15px;
+
+    border: 1px solid var(--border);
+
+    background: rgba(255,255,255,.025);
+
+}
+
+.time-box span {
+
+    display: block;
+
+    font-family: 'Barlow Condensed';
+
+    font-size: 55px;
+
+    font-weight: 700;
+
+}
+
+.time-box small {
+
+    color: #666;
+
+    letter-spacing: 3px;
+
+    font-size: 9px;
+
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+.intro {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 80px;
+
+}
+
+.intro-text {
+
+    padding-top: 30px;
+
+}
+
+.large-text {
+
+    font-family: 'Barlow Condensed';
+
+    font-size: 45px;
+
+    line-height: 1.05;
+
+    margin-bottom: 35px;
+
+}
+
+.intro-text p:not(.large-text) {
+
+    color: #888;
+
+    line-height: 1.8;
+
+    margin-bottom: 20px;
+
+}
+
+
+/* =========================
+   TRAILERS
+========================= */
+
+.trailer-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2,1fr);
+
+    gap: 30px;
+
+}
+
+.trailer-card {
+
+    background: #080808;
+
+    border: 1px solid var(--border);
+
+    overflow: hidden;
+
+    transition: .4s;
+
+}
+
+.trailer-card:hover {
+
+    transform: translateY(-10px);
+
+    border-color: rgba(229,9,20,.5);
+
+}
+
+.video-container {
+
+    aspect-ratio: 16/9;
+
+}
+
+.video-container iframe {
+
+    width: 100%;
+
+    height: 100%;
+
+    border: 0;
+
+}
+
+.trailer-info {
+
+    padding: 30px;
+
+}
+
+.trailer-info span {
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: var(--red);
+
+}
+
+.trailer-info h3 {
+
+    font-family: 'Barlow Condensed';
+
+    font-size: 35px;
+
+    margin: 12px 0;
+
+}
+
+.trailer-info p {
+
+    color: #777;
+
+    font-size: 13px;
+
+    margin-bottom: 20px;
+
+}
+
+.trailer-info a {
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* =========================
+   WATCHLIST
+========================= */
+
+.watchlist {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+
+}
+
+.movie-card {
+
+    display: grid;
+
+    grid-template-columns: 130px 1fr;
+
+    padding: 40px;
+
+    border: 1px solid var(--border);
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.035),
+            rgba(255,255,255,.01)
+        );
+
+    transition: .4s;
+
+}
+
+.movie-card:hover {
+
+    border-color: rgba(229,9,20,.5);
+
+    transform: translateX(10px);
+
+}
+
+.movie-number {
+
+    font-family: 'Barlow Condensed';
+
+    font-size: 60px;
+
+    color: #333;
+
+}
+
+.movie-phase {
+
+    color: var(--red);
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+}
+
+.movie-content h3 {
+
+    font-family: 'Barlow Condensed';
+
+    font-size: 40px;
+
+    margin: 10px 0;
+
+}
+
+.movie-content p {
+
+    max-width: 700px;
+
+    color: #777;
+
+    line-height: 1.7;
+
+    margin-bottom: 20px;
+
+}
+
+.watch-button {
+
+    display: inline-block;
+
+    text-decoration: none;
+
+    color: white;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    border-bottom: 1px solid var(--red);
+
+    padding-bottom: 7px;
+
+}
+
+
+/* =========================
+   TIMELINE
+========================= */
+
+.timeline {
+
+    position: relative;
+
+    max-width: 900px;
+
+    margin: auto;
+
+}
+
+.timeline::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 100px;
+
+    top: 0;
+
+    bottom: 0;
+
+    width: 1px;
+
+    background: #333;
+
+}
+
+.timeline-item {
+
+    display: grid;
+
+    grid-template-columns: 200px 1fr;
+
+    padding: 35px 0;
+
+}
+
+.timeline-year {
+
+    font-family: 'Barlow Condensed';
+
+    font-size: 30px;
+
+    color: var(--red);
+
+}
+
+.timeline-item h3 {
+
+    font-family: 'Barlow Condensed';
+
+    font-size: 35px;
+
+}
+
+.timeline-item p {
+
+    color: #666;
+
+    margin-top: 5px;
+
+}
+
+
+/* =========================
+   DOOM
+========================= */
+
+.doom-section {
+
+    min-height: 80vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(150,0,0,.4),
+            transparent 45%
+        );
+
+}
+
+.doom-content span {
+
+    color: var(--red);
+
+    font-size: 10px;
+
+    letter-spacing: 6px;
+
+}
+
+.doom-content h2 {
+
+    font-family: 'Barlow Condensed';
+
+    font-size: clamp(120px,25vw,350px);
+
+    line-height: .7;
+
+    font-weight: 900;
+
+}
+
+.doom-content p {
+
+    margin-top: 40px;
+
+    letter-spacing: 5px;
+
+    color: #777;
+
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about-section {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 100px;
+
+}
+
+.about-content {
+
+    padding-top: 20px;
+
+}
+
+.about-content p {
+
+    color: #888;
+
+    line-height: 2;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+
+    text-align: center;
+
+    padding: 100px 20px 50px;
+
+    border-top: 1px solid var(--border);
+
+}
+
+.footer-logo {
+
+    font-family: 'Barlow Condensed';
+
+    font-size: 80px;
+
+    font-weight: 900;
+
+}
+
+footer > p {
+
+    color: #666;
+
+    letter-spacing: 5px;
+
+    font-size: 10px;
+
+}
+
+.footer-line {
+
+    width: 80px;
+
+    height: 1px;
+
+    background: var(--red);
+
+    margin: 30px auto;
+
+}
+
+.creator {
+
+    color: #aaa;
+
+}
+
+.creator strong {
+
+    color: white;
+
+}
+
+.copyright {
+
+    margin-top: 20px;
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width: 800px) {
+
+    .navbar nav {
+
+        display: none;
+
+    }
+
+    .menu-button {
+
+        display: block;
+
+    }
+
+    .section {
+
+        padding: 90px 6vw;
+
+    }
+
+    .intro,
+    .about-section {
+
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+
+    }
+
+    .trailer-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .movie-card {
+
+        grid-template-columns: 60px 1fr;
+
+        padding: 25px;
+
+    }
+
+    .movie-number {
+
+        font-size: 35px;
+
+    }
+
+    .movie-content h3 {
+
+        font-size: 30px;
+
+    }
+
+    .timeline::before {
+
+        display: none;
+
+    }
+
+    .timeline-item {
+
+        grid-template-columns: 1fr;
+
+        gap: 8px;
+
+    }
+
+    .section-heading {
+
+        gap: 15px;
+
+    }
+
+    .section-heading h2 {
+
+        font-size: 65px;
+
+    }
+
+    .hero h1 {
+
+        letter-spacing: -2px;
+
+    }
+
+    .time-box {
+
+        width: 90px;
+
+    }
+
+    .time-box span {
+
+        font-size: 40px;
+
+    }
+
+}
+
+
+/* =========================
+   SELECTION
+========================= */
+
+::selection {
+
+    background: var(--red);
+
+    color: white;
+
+}
